@@ -20,5 +20,5 @@ from cliente import views
 urlpatterns = [
     #path('admin/', admin.site.urls),
     path('',views.pagina_inicial),
-    path('clientes/',views.clientes,name='clientes')
+    path('oficina/',views.clientes,name='clientes')
 ]
