@@ -4,12 +4,14 @@ from django.shortcuts import HttpResponse
 def pagina_inicial(request):
     return HttpResponse('Pronto para cadastrar cliente !')
 
-def clientes(request):
-    pessoa = {
-        'nome':'Sergio',
-        'idade':56,
-        'hobby':'python'
-    }
-    return render(request, 'oficina/clientes.html',pessoa)
+def novo_cliente(request):
+    return render(request, 'oficina/novo_cliente.html')
 
-# Create your views here.
+def cliente_registrado(request):
+    customer = {
+        'new_customer':request.POST.get('New_customer')
+    }
+    return render(request,'oficina/cliente_registrado.html',customer)
+
+
+
