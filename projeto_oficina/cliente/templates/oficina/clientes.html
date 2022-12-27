@@ -1,14 +1,18 @@
 <div>
-    <h1>Cadastro de Clientes</h1>
+    <h1>Lista de Clientes</h1>
     <table>
-        <th>Nome</th>
-        <th>Idade</th>
-        <th>Hobby</th>
         <tr>
-            <td>{{nome}}</td>
-            <td>{{idade}}</td>
-            <td>{{hobby}}</td>
+            <th>Cliente</th>
+            <th>Telefone</th>
+            <th>Servico</th>
+        </tr>
+        {% for dado in dados %}
+        <tr>
+            <td>{{dado.cliente_nome}}</td>
+            <td>{{dado.cliente_telefone}}</td>
+            <td>{{dado.cliente_email}}</td>
 
         </tr>
+        {% endfor %}
     </table>
 </div>
