@@ -19,7 +19,7 @@ from cliente import views
 from cliente import views as views_registrado
 
 urlpatterns = [
-    #path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('',views.pagina_inicial),
     path('novo/', views.novo_cliente, name='novo_cliente'),
     path('registrado/', views_registrado.cliente_registrado, name='cliente_registrado')
