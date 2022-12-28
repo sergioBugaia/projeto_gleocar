@@ -3,14 +3,13 @@
     <table>
         <tr>
             <th>Cliente</th>
-            <th>Telefone</th>
-            <th>Servico</th>
+            <th>Telefone</th>            
         </tr>
         {% for dado in dados %}
         <tr>
             <td>{{dado.cliente_nome}}</td>
-            <td>{{dado.cliente_telefone}}</td>
-            <td>{{dado.cliente_email}}</td>
+            <td>{{dado.cliente_telefone}}</td>            
+            <td><button><a href="{% url 'detalhe' dado.id %}">Detalhe</a></button></td>
 
         </tr>
         {% endfor %}

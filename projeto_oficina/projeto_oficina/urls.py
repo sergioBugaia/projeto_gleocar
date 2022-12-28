@@ -22,6 +22,7 @@ from cliente import views as views_registrado
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.lista_cliente),
+    path('/<int:id_cliente>', views.detalhe_cliente,name='detalhe' ),
     path('novo/', views.novo_cliente, name='novo_cliente'),
     #path('registrado/', views_registrado.cliente_registrado, name='cliente_registrado'),
     

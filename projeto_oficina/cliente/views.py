@@ -20,5 +20,12 @@ def lista_cliente(request):
     }
     return render(request,'oficina/clientes.html',context=dados)
 
+def detalhe_cliente(request, id_cliente):
+    dados = {
+        'dados':Cliente.objects.get(pk=id_cliente)
+    }
+    return render(request, 'oficina/detalhe.html',dados)
+
+
 
 
