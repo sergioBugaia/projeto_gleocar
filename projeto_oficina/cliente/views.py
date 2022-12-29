@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from .models import Cliente
+from .models import Servico
 
 def pagina_inicial(request):
     return HttpResponse('Pronto para cadastrar cliente !')
@@ -25,6 +26,12 @@ def detalhe_cliente(request, id_cliente):
         'dados':Cliente.objects.get(pk=id_cliente)
     }
     return render(request, 'oficina/detalhe.html',dados)
+
+def lista_servicos(request):
+    dados = {
+        'dados':Servico.objects.all()
+    }
+    return render(request,'oficina/servicos.html',context=dados)
 
 
 

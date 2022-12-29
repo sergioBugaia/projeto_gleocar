@@ -1,0 +1,16 @@
+<div>
+    <h1>Lista de Serviços</h1>
+    <table>
+        <tr>
+            <th>Cliente</th>
+            <th>Servico</th>
+        </tr>
+        {% for dado in dados %}
+        <tr>
+            <td>{{dado.cliente_id}}</td>
+            <td>{{dado.servico}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</div>
