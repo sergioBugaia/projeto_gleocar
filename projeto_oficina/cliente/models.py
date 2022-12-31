@@ -16,7 +16,7 @@ class Servico(models.Model):
     ano_fab = models.CharField(max_length=4,default=0)
     cor = models.CharField(max_length=50,default=0)
     placa = models.CharField(max_length=7,default=0)
-    valor = models.FloatField()
+    valor = models.DecimalField('valor',max_digits=8,decimal_places=2,null=True,default=0.0)
     pago = models.BooleanField(default=False)
     data = models.DateField(default=datetime.now)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
