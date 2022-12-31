@@ -29,7 +29,7 @@ def detalhe_cliente(request, id_cliente):
 
 def lista_servicos(request):
     dados = {
-        'dados':Servico.objects.all()
+        'dados':Servico.objects.select_related('cliente')
     }
     return render(request,'oficina/servicos.html',context=dados)
 
