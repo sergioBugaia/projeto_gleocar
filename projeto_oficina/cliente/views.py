@@ -16,23 +16,28 @@ def cliente_registrado(request):
     return render(request,'oficina/cliente_registrado.html',customer)
 
 def lista_cliente(request):
-    dados = {
-        'dados':Cliente.objects.all()
+    dados_cliente = {
+        'dados_cliente':Cliente.objects.all()
     }
-    return render(request,'oficina/clientes.html',context=dados)
+    return render(request,'oficina/clientes.html',context=dados_cliente)
 
 def detalhe_cliente(request, id_cliente):
-    dados = {
-        'dados':Cliente.objects.get(pk=id_cliente)
+    dados_cliente = {
+        'dados_cliente':Cliente.objects.get(pk=id_cliente)
     }
-    return render(request, 'oficina/detalhe.html',dados)
+    return render(request, 'oficina/detalhe.html',dados_cliente)
 
 def lista_servicos(request):
-    dados = {
-        'dados':Servico.objects.select_related('cliente')
+    dados_servico = {
+        'dados_servico':Servico.objects.select_related('cliente')
     }
-    return render(request,'oficina/servicos.html',context=dados)
+    return render(request,'oficina/servicos.html',context=dados_servico)
 
+def detalhe_servico(request,id_servico):
+    dados_servico = {
+        'dados_servico':Servico.objects.get(pk=id_servico)
+    }
+    return render(request, 'oficina/detalhe_servico.html', dados_servico)
 
 
 

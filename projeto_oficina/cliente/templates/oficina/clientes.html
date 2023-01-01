@@ -5,11 +5,11 @@
             <th>Cliente</th>
             <th>Telefone</th>            
         </tr>
-        {% for dado in dados %}
+        {% for dado in dados_cliente %}
         <tr>
             <td>{{dado.cliente_nome}}</td>
             <td>{{dado.cliente_telefone}}</td>            
-            <td><button><a href="{% url 'detalhe' dado.id %}">Detalhe</a></button></td>
+            <td><button><a href="{% url 'detalhe_cliente' dado.id %}">Detalhe</a></button></td>
 
         </tr>
         {% endfor %}
