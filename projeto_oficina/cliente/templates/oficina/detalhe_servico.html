@@ -16,13 +16,17 @@
 		<td>{{dados_servico.cliente}}</td>
 		<td>{{dados_servico.servico}}</td>
 		<td>{{dados_servico.fabricante}}</td>
-		<td>{{dados_servico.modelo}}</td>		
+		<td>{{dados_servico.modelo}}</td>
 		<td>{{dados_servico.ano_fab}}</td>
 		<td>{{dados_servico.cor}}</td>
 		<td>{{dados_servico.placa}}</td>
-		<td>{{dados_servico.data}}</td>			
+		<td>{{dados_servico.data}}</td>
 		<td>{{dados_servico.valor}}</td>
-		<td>{{dados_servico.pago}}</td>	
-		
-	</tr>	
-</table>	
+		{% if dados_servico.pago == True %}		
+			<td>{{"Pago"}}</td>
+		{% else%}
+			<td>{{"Pendente"}}</td>
+		{% endif %}
+
+	</tr>
+</table>
