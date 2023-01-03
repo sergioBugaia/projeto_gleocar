@@ -13,7 +13,7 @@
 		<th>Pagamento</th>
 	</tr>
 	<tr>
-		<td>{{dados_servico.cliente}}</td>
+	    <td>{{dados_servico.cliente}}</td>
 		<td>{{dados_servico.servico}}</td>
 		<td>{{dados_servico.fabricante}}</td>
 		<td>{{dados_servico.modelo}}</td>
@@ -22,11 +22,10 @@
 		<td>{{dados_servico.placa}}</td>
 		<td>{{dados_servico.data}}</td>
 		<td>{{dados_servico.valor}}</td>
-		{% if dados_servico.pago == True %}		
-			<td>{{"Pago"}}</td>
+		{% if dados_servico.pago == True %}
+		<td>{{"Pago"}}</td>
 		{% else%}
-			<td>{{"Pendente"}}</td>
+		<td>{{"Pendente"}}</td>
 		{% endif %}
-
-	</tr>
+	</tr>	
 </table>

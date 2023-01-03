@@ -10,8 +10,13 @@
             <td>{{dado.cliente_nome}}</td>
             <td>{{dado.cliente_telefone}}</td>            
             <td><button><a href="{% url 'detalhe_cliente' dado.id %}">Detalhe</a></button></td>
+            
 
         </tr>
         {% endfor %}
+        <tr>
+            <td></td>
+            <td><button><a href="/servicos/">Ir Para Serviço</a></button></td>
+        </tr>
     </table>
 </div>

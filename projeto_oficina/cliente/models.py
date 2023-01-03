@@ -24,7 +24,7 @@ class Servico(models.Model):
         return self.servico
 
     class Meta:
-        ordering = ['servico']       
+        ordering = ['data']       
 
 
 
