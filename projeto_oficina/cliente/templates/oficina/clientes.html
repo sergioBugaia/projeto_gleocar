@@ -1,5 +1,6 @@
 <div>    
     <h1>Lista de Clientes</h1>
+    <button><a href="{% url 'novo_cliente' %}">Novo Cliente</a></button>
     <table>
         <tr>
             <th>Cliente</th>
@@ -15,6 +16,7 @@
         </tr>
         {% endfor %}
         <tr>
+            <td></td>
             <td></td>
             <td><button><a href="/servicos/">Ir Para Serviço</a></button></td>
         </tr>
