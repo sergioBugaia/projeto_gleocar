@@ -27,4 +27,5 @@ urlpatterns = [
     path('novo/', views.novo_cliente, name='novo_cliente'),
     path('servicos/',views_servico.lista_servicos, name='servicos'),
     path('novo_cliente/', views.novo_cliente, name='novo_cliente'),    
+    path('novo_servico/', views_servico.novo_servico, name='novo_servico')
 ]

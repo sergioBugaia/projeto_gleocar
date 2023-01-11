@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect ,HttpResponse
 from .models import Cliente
 from .models import Servico
 from .forms import ClienteForm
+from .forms import ServicoForm
 
 
 def pagina_inicial(request):
@@ -19,7 +20,6 @@ def novo_cliente(request):
             'formulario': cliente_form
         }
         return render(request, 'oficina/novo_cliente.html',context=formulario)
-
 
 def lista_cliente(request):
     dados_cliente = {
@@ -45,6 +45,19 @@ def detalhe_servico(request,id_servico):
         
     }
     return render(request, 'oficina/detalhe_servico.html', dados_servico)
+
+def novo_servico(request):
+    if request.method == 'POST':
+        servico_form = ServicoForm(request.POST)
+        if servico_form.is_valid():
+            servico_form.save()
+            return redirect('/servicos')
+    else:    
+        servico_form = ServicoForm()
+        formulario = {
+            'formulario_servico': servico_form
+        }
+        return render(request, 'oficina/novo_servico.html',context=formulario)
 
 
 

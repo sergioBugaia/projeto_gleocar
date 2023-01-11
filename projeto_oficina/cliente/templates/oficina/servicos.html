@@ -1,5 +1,6 @@
 <div>
     <h1>Lista de Serviços</h1>
+    <button><a href="{% url 'novo_servico' %}">Novo Serviço</a></button>
     <table>
         <tr>
             <th>Cliente</th>
@@ -14,12 +15,13 @@
             <td><button><a href="{% url 'detalhe_servico' dado.id %}">Detalhe</a></button></td>
 
         </tr>
-        {% endfor %}
+        {% endfor %}      
+
+    </table>
+    <table>
         <tr>
             <td></td>
-            <td><button><a href="/">Ir Para Cliente</a></button></td>
+            <td><button><a href="/">Voltar Para Cliente</a></button></td>
         </tr>
-
-
     </table>
 </div>
