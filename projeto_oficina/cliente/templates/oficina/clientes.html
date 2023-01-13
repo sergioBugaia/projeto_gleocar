@@ -11,6 +11,7 @@
             <td>{{dado.cliente_nome}}</td>
             <td>{{dado.cliente_telefone}}</td>            
             <td><button><a href="{% url 'detalhe_cliente' dado.id %}">Detalhe</a></button></td>
+            <td><button><a href="{% url 'editar_cliente' dado.id  %}">Editar</a></button></td>
             
 
         </tr>

@@ -59,5 +59,26 @@ def novo_servico(request):
         }
         return render(request, 'oficina/novo_servico.html',context=formulario)
 
+def editar_cliente(request,id_cliente):
+    cliente_edit = Cliente.objects.get(pk=id_cliente)
+    if request.method == 'GET':
+        formulario = ClienteForm(instance=cliente_edit)
+        return render(request,'oficina/novo_cliente.html',{'formulario':formulario})
+    else:
+        formulario = ClienteForm(request.POST,instance=cliente_edit)        
+        if formulario.is_valid():
+            formulario.save()
+        return redirect('clientes') 
+
+def editar_servico(request,id_servico):
+    servico_edit = Servico.objects.get(pk=id_servico)
+    if request.method == 'GET':
+        formulario = ServicoForm(instance=servico_edit)        
+        return render(request, 'oficina/novo_servico.html',{'formulario_servico':formulario})
+    else:
+        formulario = ServicoForm(request.POST,instance=servico_edit)
+        if formulario.is_valid():
+            formulario.save()
+        return redirect('servicos')            
 
 

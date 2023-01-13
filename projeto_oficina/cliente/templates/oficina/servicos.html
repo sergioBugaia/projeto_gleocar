@@ -13,6 +13,7 @@
             <td>{{dado.servico}}</td>
             <td>{{dado.data}}</td>
             <td><button><a href="{% url 'detalhe_servico' dado.id %}">Detalhe</a></button></td>
+            <td><button><a href="{% url 'editar_servico' dado.id %}">Editar</a></button></td>
 
         </tr>
         {% endfor %}      

@@ -25,7 +25,8 @@ urlpatterns = [
     path('<int:id_cliente>', views.detalhe_cliente,name='detalhe_cliente' ),
     path('servicos/<int:id_servico>', views_servico.detalhe_servico,name='detalhe_servico'),
     path('novo/', views.novo_cliente, name='novo_cliente'),
-    path('servicos/',views_servico.lista_servicos, name='servicos'),
-    path('novo_cliente/', views.novo_cliente, name='novo_cliente'),    
-    path('novo_servico/', views_servico.novo_servico, name='novo_servico')
+    path('novo/<int:id_cliente>',views.editar_cliente,name='editar_cliente'),
+    path('servicos/',views_servico.lista_servicos, name='servicos'),     
+    path('novo_servico/', views_servico.novo_servico, name='novo_servico'),
+    path('novo_servico/<int:id_servico>', views_servico.editar_servico, name='editar_servico'),
 ]
