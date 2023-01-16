@@ -1,21 +1,30 @@
-<h1>Detalhe do Cliente</h1>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Cliente</th>
-        <th>Telefone</th>
-        <th>Email</th>
-    </tr>
-    <tr>
-        <td>{{dados_cliente.id}}</td>
-        <td>{{dados_cliente.cliente_nome}}</td>
-        <td>{{dados_cliente.cliente_telefone}}</td>
-        <td>{{dados_cliente.cliente_email}}</td>
-    </tr>
-</table>
-<table>
-    <tr>
-        <td></td>
-        <td><button><a href="/">Voltar</a></button></td>
-    </tr>
-</table>
+{% extends 'oficina/base.html' %}
+{% block conteudo %}
+    <table class="table table-striped table-bordered">
+        <tr>
+            <td><h1 style='text-align: center;'>Detalhe do Cliente</h1></td>
+        </tr>    
+    </table> 
+<div class="container">            
+    <table clas='table table-hover table-bordered'>
+        <tr>
+            <th>Id</th>
+            <th>Cliente</th>
+            <th>Telefone</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td>{{dados_cliente.id}}</td>
+            <td>{{dados_cliente.cliente_nome}}</td>
+            <td>{{dados_cliente.cliente_telefone}}</td>
+            <td>{{dados_cliente.cliente_email}}</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td></td>
+            <td><button><a href="/">Voltar</a></button></td>
+        </tr>
+    </table>    
+</div>
+{% endblock %}
