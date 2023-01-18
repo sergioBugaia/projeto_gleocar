@@ -23,9 +23,17 @@ def novo_cliente(request):
 
 def lista_cliente(request):
     dados_cliente = {
-        'dados_cliente':Cliente.objects.all().order_by('-servico')
+        'dados_cliente':Cliente.objects.all().order_by('-servico')[:7]
     }
     return render(request,'oficina/clientes.html',context=dados_cliente)
+
+def filtra_cliente(request):
+    if request.method == "POST":  
+        searched = request.POST['searched']  
+        clientes = Cliente.objects.filter(cliente_nome__icontains=searched)  
+        return render(request,'oficina/search_cliente.html',{'searched':searched,'clientes':clientes})  
+    else:
+        return render(request,'oficina/search_cliente.html')           
 
 def detalhe_cliente(request, id_cliente):
     dados_cliente = {

@@ -1,0 +1,37 @@
+{% extends 'oficina/base.html' %}
+{% block conteudo %}
+<div class="container">
+    <h1 style='text-align:center;'>Listagem de Clientes</h1>        
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th></th>
+            <th><button class='btn btn-success'><a style='color:white;' href="{% url 'novo_cliente' %}">Novo
+                Cliente</a></button></th>
+        </tr>
+        {% for cliente in clientes %}
+        <tr>
+            <td>{{cliente.cliente_nome}}</td>
+            <td>{{cliente.cliente_telefone}}</td>
+            <td><button class='btn btn-info'><a style='color:white;'
+                        href="{% url 'detalhe_cliente' cliente.id %}">Detalhe</a></button></td>
+            <td><button class='btn btn-warning'><a a style='color:white;'
+                        href="{% url 'editar_cliente' cliente.id  %}">Editar</a></button></td>
+
+        </tr>
+        {% endfor %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td><button><a href="/servicos/">Serviços</a></button></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td></td>
+            <td><button><a href="/">Voltar</a></button></td>
+        </tr>
+    </table>    
+</div>
+{%endblock%}

@@ -20,8 +20,9 @@ from cliente import views as views_registrado
 from cliente import views as views_servico
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',views.lista_cliente, name='clientes'),    
+    path('admin/', admin.site.urls),    
+    path('',views.lista_cliente, name='clientes'), 
+    path('search_cliente/',views.filtra_cliente,name='search_cliente'),   
     path('<int:id_cliente>', views.detalhe_cliente,name='detalhe_cliente' ),
     path('servicos/<int:id_servico>', views_servico.detalhe_servico,name='detalhe_servico'),
     path('novo/', views.novo_cliente, name='novo_cliente'),

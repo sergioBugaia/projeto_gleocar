@@ -10,12 +10,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!-- as a link --->
+    {% block conteudo %}
     <nav class="navbar navbar-light bg-light">
-        {% block conteudo %}  
         <a class="navbar-brand" href="{% url 'clientes'%}">Clientes</a>
-        {% endblock %} 
+        <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'search_cliente' %}">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                name="filtra_cliente">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </nav>
-
+    {% endblock %}
 </head>
 
 <body>
