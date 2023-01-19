@@ -1,11 +1,18 @@
-<form action="" method="POST">
-    {% csrf_token %}    
-    <h1>Formulario Novo Cliente</h1>    
-    {{formulario}}
-    <button type="submit">Salvar</button> 
-    <table>
-        <tr>
-            <td><button><a href="/">Voltar</a></button></td>
-        </tr>
-    </table>   
-</form>
+{% extends 'oficina/base.html' %}
+{% block conteudo %}
+{% load crispy_forms_tags %}
+
+<div class="container>">
+    <h1>Formulario Novo Cliente</h1>
+    <form class="form-control mr-sm-2" action="" method="POST">
+        {% csrf_token %}  
+        {{formulario | crispy}}        
+        <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Salvar</button>
+        <table>                          
+            <tr>                
+                <td><button class="btn btn-success"><a href="/" style='color:white;'>Voltar</a></button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}

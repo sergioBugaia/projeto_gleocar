@@ -27,7 +27,8 @@ urlpatterns = [
     path('servicos/<int:id_servico>', views_servico.detalhe_servico,name='detalhe_servico'),
     path('novo/', views.novo_cliente, name='novo_cliente'),
     path('novo/<int:id_cliente>',views.editar_cliente,name='editar_cliente'),
-    path('servicos/',views_servico.lista_servicos, name='servicos'),     
+    path('servicos/',views_servico.lista_servicos, name='servicos'), 
+    path('search_servico/',views_servico.filtra_servico ,name='search_servico'),    
     path('novo_servico/', views_servico.novo_servico, name='novo_servico'),
     path('novo_servico/<int:id_servico>', views_servico.editar_servico, name='editar_servico'),
 ]

@@ -4,10 +4,6 @@ from .models import Servico
 from .forms import ClienteForm
 from .forms import ServicoForm
 
-
-def pagina_inicial(request):
-    return HttpResponse('Pronto para cadastrar cliente !')
-
 def novo_cliente(request):
     if request.method == 'POST':
         cliente_form = ClienteForm(request.POST)
@@ -33,7 +29,7 @@ def filtra_cliente(request):
         clientes = Cliente.objects.filter(cliente_nome__icontains=searched)  
         return render(request,'oficina/search_cliente.html',{'searched':searched,'clientes':clientes})  
     else:
-        return render(request,'oficina/search_cliente.html')           
+        return render(request,'oficina/clientes.html')           
 
 def detalhe_cliente(request, id_cliente):
     dados_cliente = {
@@ -43,9 +39,17 @@ def detalhe_cliente(request, id_cliente):
 
 def lista_servicos(request):
     dados_servico = {
-        'dados_servico':Servico.objects.select_related('cliente').order_by('-data')
+        'dados_servico':Servico.objects.select_related('cliente').order_by('-data')[:7]
     }
     return render(request,'oficina/servicos.html',context=dados_servico)
+
+def filtra_servico(request):
+    if request.method == "POST":  
+        searched = request.POST['searched']  
+        servicos = Servico.objects.filter(modelo__icontains=searched)  
+        return render(request,'oficina/search_servico.html',{'searched':searched,'servicos':servicos})  
+    else:
+        return render(request,'oficina/servicos.html') 
 
 def detalhe_servico(request,id_servico):
     dados_servico = {

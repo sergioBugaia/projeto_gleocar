@@ -5,9 +5,9 @@
         <a class="navbar-brand" href="{% url 'clientes'%}">Home</a>
         <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'search_cliente' %}">
             {% csrf_token %}
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+            <input class="form-control mr-sm-2" type="search" placeholder="Nome" aria-label="Search"
                 name="searched">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
         </form>
     </nav>
     
@@ -19,7 +19,7 @@
                 <th>Telefone</th>
                 <th></th>
                 <th><button class='btn btn-success'><a style='color:white;' href="{% url 'novo_cliente' %}">Novo
-                    Cliente</a></button></th>
+                    </a></button></th>
             </tr>
             {% for dado in dados_cliente %}
             <tr>
@@ -27,7 +27,7 @@
                 <td>{{dado.cliente_telefone}}</td>
                 <td><button class='btn btn-info'><a style='color:white;'
                             href="{% url 'detalhe_cliente' dado.id %}">Detalhe</a></button></td>
-                <td><button class='btn btn-warning'><a a style='color:white;'
+                <td><button class='btn btn-warning'><a style='color:white;'
                             href="{% url 'editar_cliente' dado.id  %}">Editar</a></button></td>
 
             </tr>

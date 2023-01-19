@@ -8,7 +8,7 @@
             <th>Telefone</th>
             <th></th>
             <th><button class='btn btn-success'><a style='color:white;' href="{% url 'novo_cliente' %}">Novo
-                Cliente</a></button></th>
+                </a></button></th>
         </tr>
         {% for cliente in clientes %}
         <tr>
@@ -16,7 +16,7 @@
             <td>{{cliente.cliente_telefone}}</td>
             <td><button class='btn btn-info'><a style='color:white;'
                         href="{% url 'detalhe_cliente' cliente.id %}">Detalhe</a></button></td>
-            <td><button class='btn btn-warning'><a a style='color:white;'
+            <td><button class='btn btn-warning'><a style='color:white;'
                         href="{% url 'editar_cliente' cliente.id  %}">Editar</a></button></td>
 
         </tr>
