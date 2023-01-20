@@ -11,8 +11,7 @@
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!-- as a link --->
     {% block conteudo %}
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'clientes'%}">Clientes</a>
+    <nav class="navbar navbar-light bg-light">        
         <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'search_cliente' %}">
             {% csrf_token %}
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"

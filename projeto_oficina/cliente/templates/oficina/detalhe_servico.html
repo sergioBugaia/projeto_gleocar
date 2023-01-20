@@ -1,5 +1,12 @@
-<h1>Detalhe de Serviço</h1>
-<table>
+{% extends 'oficina/base.html' %}
+{% block conteudo %}
+<table class="table table-striped table-bordered">
+	<tr>
+		<td><h1 style='text-align: center;'>Detalhe de Serviço</h1></td>
+	</tr>    
+</table> 
+<div class="container">
+<table class='table table-hover table-bordered'>
 	<tr>
 		<th>Cliente</th>
 		<th>Servico</th>
@@ -23,9 +30,9 @@
 		<td>{{dados_servico.data}}</td>
 		<td>{{dados_servico.valor}}</td>
 		{% if dados_servico.pago == True %}
-		<td>{{"Pago"}}</td>
+		<td class="badge badge-info">{{"Pago"}}</td>
 		{% else%}
-		<td>{{"Pendente"}}</td>
+		<td class="badge badge-danger">{{"Pendente"}}</td>
 		{% endif %}
 	</tr>	
 </table>
@@ -36,3 +43,5 @@
 		<td><button><a href="/servicos/">Voltar</a></button></td>
 	</tr>
 </table>
+</div>
+{% endblock %}

@@ -1,11 +1,18 @@
-<form action="" method="POST">
-    {% csrf_token %}    
+{% extends 'oficina/base.html' %}
+{% block conteudo %}
+{% load crispy_forms_tags %} 
+<div class="text-center">  
     <h1>Formulario Novo Serviço</h1>    
-    {{formulario_servico}}
-    <button type="submit">Salvar</button> 
-    <table>
-        <tr>
-            <td><button><a href="/">Voltar</a></button></td>
-        </tr>
-    </table>   
-</form>
+</div> 
+<div class="text-right" style="padding: 20px;">
+    <button class="btn btn-success"><a href="/" style='color:white;'>Voltar</a></button>
+</div>  
+<div class="container>" style="margin:30px;">                           
+    <form class="form-group" action="" method="POST">
+        {% csrf_token %}  
+        {{formulario_servico | crispy}}
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Salvar</button>           
+        <button class="btn btn-success"><a href="/" style='color:white;'>Voltar</a></button>                
+    </form>
+</div>
+{% endblock %}
