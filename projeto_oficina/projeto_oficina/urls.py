@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.urls import path, include  
 from cliente import views
 from cliente import views as views_registrado
 from cliente import views as views_servico
@@ -31,4 +33,5 @@ urlpatterns = [
     path('search_servico/',views_servico.filtra_servico ,name='search_servico'),    
     path('novo_servico/', views_servico.novo_servico, name='novo_servico'),
     path('novo_servico/<int:id_servico>', views_servico.editar_servico, name='editar_servico'),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

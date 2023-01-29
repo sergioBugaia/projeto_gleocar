@@ -6,6 +6,14 @@
             <tr>
                 <td><a class="navbar-brand" href="{% url 'clientes'%}">Clientes</a></td>
                 <td><a class="navbar-brand" href="{% url 'servicos'%}">Serviços</a></td>
+                <td></td>
+                {% if request.user.is_authenticated %}
+                <td><a class="navbar-brand" href="{% url 'logout'%}">Sair</a></td>
+                {% endif %}
+                <td></td>
+                <td>
+                    <h2>Usuario: {{request.user.username}}</h2>
+                </td>
             </tr>
         </table>    
         <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'search_servico' %}">

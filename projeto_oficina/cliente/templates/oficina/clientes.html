@@ -6,25 +6,32 @@
             <tr>
                 <td><a class="navbar-brand" href="{% url 'clientes'%}">Clientes</a></td>
                 <td><a class="navbar-brand" href="{% url 'servicos'%}">Serviços</a></td>
+                <td></td>
+                {% if request.user.is_authenticated %}
+                <td><a class="navbar-brand" href="{% url 'logout'%}">Sair</a></td>
+                {% endif %}
+                <td></td>
+                <td>
+                    <h2>Usuario: {{request.user.username}}</h2>
+                </td>
             </tr>
-        </table>           
+        </table>
         <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'search_cliente' %}">
             {% csrf_token %}
-            <input class="form-control mr-sm-2" type="search" placeholder="Nome" aria-label="Search"
-                name="searched">
+            <input class="form-control mr-sm-2" type="search" placeholder="Nome" aria-label="Search" name="searched">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
         </form>
     </nav>
-    
+
     <div class="container">
-        <h1 style='text-align:center;'>Listagem de Clientes</h1>        
+        <h1 style='text-align:center;'>Listagem de Clientes</h1>
         <table class="table table-striped table-bordered">
             <tr>
                 <th>Nome</th>
                 <th>Telefone</th>
                 <th></th>
                 <th><button class='btn btn-success'><a style='color:white;' href="{% url 'novo_cliente' %}">Novo
-                    </a></button></th>
+                        </a></button></th>
             </tr>
             {% for dado in dados_cliente %}
             <tr>
