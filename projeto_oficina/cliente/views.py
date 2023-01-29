@@ -9,7 +9,7 @@ def novo_cliente(request):
         cliente_form = ClienteForm(request.POST)
         if cliente_form.is_valid():
             cliente_form.save()
-            return redirect('clientes')
+        return redirect('clientes')
     else:    
         cliente_form = ClienteForm()
         formulario = {
@@ -63,7 +63,7 @@ def novo_servico(request):
         servico_form = ServicoForm(request.POST)
         if servico_form.is_valid():
             servico_form.save()
-            return redirect('/servicos')
+        return redirect('/servicos')
     else:    
         servico_form = ServicoForm()
         formulario = {
