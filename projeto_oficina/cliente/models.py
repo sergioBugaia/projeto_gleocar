@@ -4,7 +4,7 @@ from datetime import datetime
 
 class Cliente(models.Model):
     cliente_nome = models.CharField(max_length=100)
-    cliente_telefone = models.CharField(max_length=11)
+    cliente_telefone = models.CharField(max_length=13)
     cliente_email = models.CharField(max_length=50)    
     def __str__(self):
         return self.cliente_nome

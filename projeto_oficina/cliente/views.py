@@ -11,14 +11,21 @@ def novo_cliente(request):
         cliente_form = ClienteForm(request.POST)
         if cliente_form.is_valid():
             cliente_form.save()
-        return redirect('clientes')
-    else:    
+            return redirect('clientes')
+        else:           
+            formulario = {
+                'formulario': cliente_form
+            }
+            return render(request, 'oficina/novo_cliente.html',context=formulario) 
+    else:  
         cliente_form = ClienteForm()
         formulario = {
-            'formulario': cliente_form
-        }
-        return render(request, 'oficina/novo_cliente.html',context=formulario)
+                'formulario': cliente_form
+            }
+        return render(request, 'oficina/novo_cliente.html',context=formulario) 
 
+                         
+ 
 @login_required
 def lista_cliente(request):
     dados_cliente = {
