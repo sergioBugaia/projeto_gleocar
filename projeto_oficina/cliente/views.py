@@ -78,7 +78,12 @@ def novo_servico(request):
         servico_form = ServicoForm(request.POST)
         if servico_form.is_valid():
             servico_form.save()
-        return redirect('/servicos')
+            return redirect('/servicos')
+        else:           
+            formulario = {
+                'formulario_servico': servico_form
+            }
+            return render(request, 'oficina/novo_servico.html',context=formulario)
     else:    
         servico_form = ServicoForm()
         formulario = {

@@ -43,6 +43,43 @@ class ClienteForm(forms.ModelForm):
         fields = '__all__'
 
 class ServicoForm(ModelForm):
+     #VALIDATIONS
+    fabricante = Uppercase(
+        label='Fabricante',min_length=3, max_length=100,
+        validators= [RegexValidator(r'^[a-zA-ZÀ-ÿ\s]*$',message="Use somente letras")],
+        widget=forms.TextInput(attrs={'placeholder': 'Nome e sobrenome'})
+    )
+
+    modelo = Uppercase(
+        label='Modelo',min_length=3, max_length=100,
+        validators= [RegexValidator(r'^[a-zA-ZÀ-ÿ\s]*$',message="Use somente letras")],
+        widget=forms.TextInput(attrs={'placeholder': 'Nome e sobrenome'})
+    )
+
+    ano_fab = forms.CharField(
+        label='Ano Veiculo',min_length=4, max_length=9 ,
+        validators= [RegexValidator(r'^[0-9\s-]*$',message="Use o modelo 2022-2022")],
+        widget=forms.TextInput(attrs={'placeholder': '2022-2022'})
+    )
+
+    cor = Uppercase(
+        label='Cor Veiculo',min_length=3, max_length=15,
+        validators= [RegexValidator(r'^[a-zA-ZÀ-ÿ\s]*$',message="Use somente letras")],
+        widget=forms.TextInput(attrs={'placeholder': 'Cor'})
+    )
+
+    placa = forms.CharField(
+        label='Placa',min_length=7, max_length=8 ,
+        validators= [RegexValidator(r'^[a-zA-Z0-9\s-]*$',message="Use o modelo ABC-1234")],
+        widget=forms.TextInput(attrs={'placeholder': 'ABC-1234'})
+    )
+
+    valor = forms.CharField(
+        label='Valor',min_length=3, max_length=10 ,
+        validators= [RegexValidator(r'^[0-9\s,.]*$',message="Use o modelo 1000,00")],
+        widget=forms.TextInput(attrs={'placeholder': '1000,00'})
+    )
+
     class Meta:
         model = Servico
         fields = '__all__'        
