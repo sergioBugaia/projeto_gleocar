@@ -1,17 +1,17 @@
 {% extends 'oficina/base.html' %}
 {% block conteudo %}
 {% load crispy_forms_tags %}
-<div class="text-center">
-    <h1>Formulario Novo Serviço</h1>
+<div class="text-center" style="margin: 0px; padding: 0px;">
+    <h1><u style="height: 5px;color: rgb(45, 124, 9);">Formulario Novo Serviço</u></h1>
 </div>
 <div class="text-left" style="margin-left:20px;">
-    <button class="btn btn-success"><a href="/" style='color:white;'>Voltar</a></button>
+    <button class="btn btn-primary mt-3"><a href="/" style='color:white;'>Voltar</a></button>
 </div>
-<div class="container mt-3" style="margin:30px;" style="width:90%; font-size:14px">
+<div class="container" style="padding:30px;" style="width:90%; font-size:14px">
     <form class="card p-3 mt-5" action="" method="POST" novalidate autocomplete="off">
         {% csrf_token %}
         <div class="row">
-            <div class="col-12">{{formulario_servico.servico | as_crispy_field }} </div>
+            <div class="col-12">{{formulario_servico.servico | as_crispy_field }}</div>
         </div>
         <div class="row">
             <div class="col-4">{{formulario_servico.fabricante | as_crispy_field }} </div>
