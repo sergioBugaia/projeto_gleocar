@@ -25,7 +25,7 @@ class ClienteForm(forms.ModelForm):
     cliente_nome = Uppercase(
         label='Nome',min_length=3, max_length=100,
         validators= [RegexValidator(r'^[a-zA-ZÀ-ÿ\s]*$',message="Use somente letras")],
-        widget=forms.TextInput(attrs={'placeholder': 'Nome e sobrenome'})
+        widget=forms.TextInput(attrs={'placeholder': 'Nome e sobrenome','autofocus':True})
     )
 
     cliente_telefone = forms.CharField(
@@ -46,14 +46,19 @@ class ClienteForm(forms.ModelForm):
 
 class ServicoForm(ModelForm):
      #VALIDATIONS
+    servico = Uppercase(
+        label='Descrição',min_length=5, max_length=255,
+        widget=forms.Textarea (attrs={'autofocus':True})
+    )
+
     fabricante = Uppercase(
-        label='Fabricante',min_length=3, max_length=100,
+        label='Fabricante',min_length=2, max_length=50,
         validators= [RegexValidator(r'^[a-zA-ZÀ-ÿ\s]*$',message="Use somente letras")],
         widget=forms.TextInput(attrs={'placeholder': 'Nome e sobrenome'})
     )
 
     modelo = Uppercase(
-        label='Modelo',min_length=3, max_length=100,
+        label='Modelo',min_length=3, max_length=50,
         validators= [RegexValidator(r'^[a-zA-ZÀ-ÿ\s]*$',message="Use somente letras")],
         widget=forms.TextInput(attrs={'placeholder': 'Nome e sobrenome'})
     )
@@ -70,7 +75,7 @@ class ServicoForm(ModelForm):
         widget=forms.TextInput(attrs={'placeholder': 'Cor'})
     )
 
-    placa = forms.CharField(
+    placa = Uppercase(
         label='Placa',min_length=7, max_length=8 ,
         validators= [RegexValidator(r'^[a-zA-Z0-9\s-]*$',message="Use o modelo ABC-1234")],
         widget=forms.TextInput(attrs={'placeholder': 'ABC-1234'})
@@ -78,8 +83,8 @@ class ServicoForm(ModelForm):
 
     valor = forms.CharField(
         label='Valor',min_length=3, max_length=10 ,
-        validators= [RegexValidator(r'[0-9]+[\.][0-9]+[\,][0-9]{2}', message="Use o modelo 1.000,00")],        
-        widget=forms.TextInput(attrs={'placeholder': '1.000,00'})
+        validators= [RegexValidator(r'(?:\.|,|[0-9])*', message="Use o modelo 10.000,00")],        
+        widget=forms.TextInput(attrs={'placeholder': '10.000,00'})
     )
 
     
