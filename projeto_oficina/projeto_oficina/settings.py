@@ -132,3 +132,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGOUT_REDIRECT_URL = 'login'
 LOGIN_REDIRECT_URL = 'clientes'
+
+DATE_INPUT_FORMATS = ['%d/%m/%y']
+USE_L10N = False

@@ -4,6 +4,7 @@ from django.core.validators import RegexValidator
 from .models import Cliente
 from .models import Servico
 
+
 #capitalize
 #def clean(self):
 #   self.cliente_nome = self.cliente_nome.capitalize()    
@@ -16,7 +17,8 @@ class Lowercase(forms.CharField):
 #letters to upercase
 class Uppercase(forms.CharField):
     def to_python(self, value):
-        return value.upper()         
+        return value.upper() 
+
 
 class ClienteForm(forms.ModelForm):
     #VALIDATIONS
@@ -76,10 +78,12 @@ class ServicoForm(ModelForm):
 
     valor = forms.CharField(
         label='Valor',min_length=3, max_length=10 ,
-        validators= [RegexValidator(r'^[0-9\s,.]*$',message="Use o modelo 1000,00")],
-        widget=forms.TextInput(attrs={'placeholder': '1000,00'})
+        validators= [RegexValidator(r'[0-9]+[\.][0-9]+[\,][0-9]{2}', message="Use o modelo 1.000,00")],        
+        widget=forms.TextInput(attrs={'placeholder': '1.000,00'})
     )
 
+    
+    
     class Meta:
         model = Servico
         fields = '__all__'        
