@@ -33,5 +33,6 @@ urlpatterns = [
     path('search_servico/',views_servico.filtra_servico ,name='search_servico'),    
     path('novo_servico/', views_servico.novo_servico, name='novo_servico'),
     path('novo_servico/<int:id_servico>', views_servico.editar_servico, name='editar_servico'),
+    path('search_pgto/',views_servico.filtra_pgto ,name='search_pgto'), 
     path('accounts/', include('django.contrib.auth.urls')),
 ]

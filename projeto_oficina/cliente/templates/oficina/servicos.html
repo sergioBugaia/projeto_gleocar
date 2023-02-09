@@ -6,6 +6,7 @@
             <tr>
                 <td><a class="navbar-brand" href="{% url 'clientes'%}">Clientes</a></td>
                 <td><a class="navbar-brand" href="{% url 'servicos'%}">Serviços</a></td>
+                <td><a class="navbar-brand" href="{% url 'search_pgto'%}">A Receber</a></td>
                 <td></td>
                 {% if request.user.is_authenticated %}
                 <td><a class="navbar-brand" href="{% url 'logout'%}">Sair</a></td>
@@ -19,7 +20,7 @@
         <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'search_servico' %}">
             {% csrf_token %}
             <input class="form-control mr-sm-2" type="search" placeholder="Veiculo" aria-label="Search"
-                name="searched">
+                name="searched" autofocus>
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
         </form>
     </nav>

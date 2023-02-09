@@ -40,7 +40,8 @@ def filtra_cliente(request):
         clientes = Cliente.objects.filter(cliente_nome__icontains=searched)  
         return render(request,'oficina/search_cliente.html',{'searched':searched,'clientes':clientes})  
     else:
-        return render(request,'oficina/clientes.html')           
+        return render(request,'oficina/clientes.html')   
+
 @login_required
 def detalhe_cliente(request, id_cliente):
     dados_cliente = {
@@ -113,6 +114,14 @@ def editar_servico(request,id_servico):
         formulario = ServicoForm(request.POST,instance=servico_edit)
         if formulario.is_valid():
             formulario.save()
-        return redirect('servicos')            
+        return redirect('servicos') 
+
+@login_required
+def filtra_pgto(request):
+     dados_servico = {
+        'dados_servico':Servico.objects.select_related('cliente').order_by('-data')[:7]
+    }
+     return render(request,'oficina/pagamentos.html',context=dados_servico)
+
 
 
