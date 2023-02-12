@@ -1,5 +1,5 @@
 .gleocar_env/
-gleocar/
+gleocar_env/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
