@@ -1,1 +1,1 @@
-  web: gunicorn projeto_gleocar.wsgi
+  web: gunicorn projeto_oficina.wsgi
