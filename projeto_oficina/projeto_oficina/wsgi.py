@@ -7,9 +7,11 @@ For more information on this file, see
 https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/
 """
 
-import os
+import os   
 from django.core.wsgi import get_wsgi_application
+import django.core.handlers.wsgi
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'projeto_oficina.settings')
 
 application = get_wsgi_application()
+application = django.core.handlers.wsgi.WSGIHandler()
