@@ -1,1 +1,1 @@
-web: gunicorn projeto_oficina.wsgi
+gunicorn projeto_oficina.wsgi
